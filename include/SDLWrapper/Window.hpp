@@ -13,7 +13,7 @@ public:
 	Window(std::string title, int width, int height, Uint32 windowFlag, Uint32 systemFlag);
 	~Window();
 	
-	SDL_Window *getHandle() const;
+	SDL_Window* getHandle() const;
 	std::string getTitle() const;
 	
 	int getWidth() const;

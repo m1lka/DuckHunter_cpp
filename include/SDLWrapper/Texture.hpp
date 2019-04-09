@@ -10,15 +10,27 @@ class Texture
 public:
 
 	Texture();
+ 	Texture(const Texture& texture);
 	~Texture();
 	
-	SDL_Texture *getTextureHandle() const;
+	SDL_Texture* getTextureHandle() const;
 	
-	void LoadFromBMP(std::string path, SDL_Renderer *renderHandle);
-	void LoadFromPNG(std::string path, SDL_Renderer *renderHandle);
+	void LoadFromBMP(std::string path, SDL_Renderer* renderHandle);
+	void LoadFromPNG(std::string path, SDL_Renderer* renderHandle);
+	
+	Texture& operator=(const Texture& right);
+	
+	long int getCount() const
+	{
+		return _texture.use_count();
+	}
 	
 private:
-	std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> _texture;
+	using SharedTexture = std::shared_ptr<SDL_Texture>;
+	
+	SharedTexture MakeSharedTexture(SDL_Texture* texture);
+	
+	SharedTexture _texture;
 };
 
 #endif // _TEXTURE_HPP_

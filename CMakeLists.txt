@@ -8,13 +8,15 @@ include_directories(./include)
 set(SRC ./src/SDLWrapper/Window.cpp
 		./src/SDLWrapper/Renderer.cpp
 		./src/SDLWrapper/Texture.cpp
+		./src/SDLWrapper/Sprite.cpp
 )
 
 set(HDR ./include/SDLWrapper/Window.hpp
 		./include/SDLWrapper/Render/Renderer.hpp
 		./include/SDLWrapper/Render/RenderRegion.hpp
 		./include/SDLWrapper/Texture.hpp
-                ./include/SDLWrapper/MessageBox.hpp
+        ./include/SDLWrapper/MessageBox.hpp
+        ./include/SDLWrapper/Sprite.hpp
         ./include/Game.hpp
 )
 
@@ -24,7 +26,7 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL Linux)
 
   add_definitions(-D_LINUX)
 
-  set(LIB SDL2)
+  set(LIB SDL2 SDL2_image)
 
   add_executable(${PROJECT_NAME} ${HDR} ${SRC} ${TARGET_SRC})
   target_link_libraries(${PROJECT_NAME} ${LIB})

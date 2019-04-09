@@ -33,9 +33,13 @@ public:
 		render.Initialize(window.getHandle());
 		
 		Texture texture;
+
+        texture.LoadFromPNG("./field.png", render.getRendererHandle());
 		
-        texture.LoadFromBMP("./field.bmp", render.getRendererHandle());
-		
+		SDL_Rect rect;
+		rect.x = 0, rect.y = 0, rect.w = 300, rect.h = 300;
+		Sprite s(texture, rect);
+
 		while(run)
 		{
             render.Clear();
@@ -45,7 +49,7 @@ public:
 				window.Update(event);
 			}
 			
-			render.RenderTexture(texture.getTextureHandle());
+			render.RenderSprite(s);
             render.Update();
 		}
 		

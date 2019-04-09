@@ -26,9 +26,7 @@ void Renderer::Initialize(SDL_Window* windowHandle)
 		cerr << error << "\n";
         throw std::exception();
 	}
-    cerr << "Window handle in renderer " << windowHandle << "\n";
-    cerr << _renderRegion.Width << " " << _renderRegion.Height << "\n";
-    cerr << "Init renderer " << _renderer.get() << "\n";
+
 	if(SDL_RenderSetLogicalSize(_renderer.get(), _renderRegion.Width, _renderRegion.Height) < 0)
 	{
 		string error = string("SDL_RenderSetLogicalSize Error: ") + SDL_GetError();
@@ -62,7 +60,14 @@ void Renderer::RenderTexture(SDL_Texture* texture)
 	SDL_Rect *rect = new SDL_Rect;// = {0, 0, 300, 300};
     rect->x = 0; rect->y = 0; rect->w = 300; rect->h = 300;
 	SDL_RenderCopy(_renderer.get(), texture, nullptr, rect);
-    cerr << "Render texture " << texture << "\n";
 }
+
+void Renderer::RenderSprite(Sprite& sprite)
+{
+	SDL_Rect rect = sprite.getBound();
+	SDL_Texture *texture = sprite.getTexture().getTextureHandle();
+	SDL_RenderCopy(_renderer.get(), texture, nullptr, &rect);
+}
+
 
 

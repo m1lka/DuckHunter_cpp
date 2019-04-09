@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <memory>
 #include "SDLWrapper/Render/RenderRegion.hpp"
+#include "SDLWrapper/Sprite.hpp"
 
 class Renderer 
 {
@@ -11,14 +12,15 @@ public:
 	Renderer();
 	~Renderer();
 	
-	void Initialize(SDL_Window *windowHandle);
+	void Initialize(SDL_Window* windowHandle);
 	void Update();
 	void Clear();
 	
 	RenderRegion getRenderRegion() const;
 	SDL_Renderer *getRendererHandle() const;
 	
-	void RenderTexture(SDL_Texture *texture);
+	void RenderTexture(SDL_Texture* texture);
+	void RenderSprite(Sprite& sprite);
 	
 private:
 	RenderRegion _renderRegion;

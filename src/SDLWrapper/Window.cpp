@@ -50,7 +50,6 @@ void Window::CreateWindow()
 		cerr << error << "\n";
 		throw std::bad_function_call();
 	}
-    cerr << "window ptr " << _window.get() << "\n";
 }
 
 void Window::Update(SDL_Event& currentEvent)
