@@ -1,4 +1,4 @@
-#include "SDLWrapper/Sprite.hpp"
+#include "Core/Sprite.hpp"
 #include <iostream>
 
 Sprite::Sprite(Texture& texture, SDL_Rect bound):

@@ -1,6 +1,7 @@
-#include "SDLWrapper/Window.hpp"
-#include "SDLWrapper/Render/Renderer.hpp"
-#include "SDLWrapper/Texture.hpp"
+#include "Core/Window.hpp"
+#include "Core/Render/Renderer.hpp"
+#include "Core/Texture.hpp"
+#include "Core/Input/Input.hpp"
 
 #include <iostream>
 
@@ -46,11 +47,13 @@ public:
 			SDL_Event event;
 			while(SDL_PollEvent(&event) == 1)
 			{
+				Input::Update(event);
 				window.Update(event);
 			}
 			
 			render.RenderSprite(s);
             render.Update();
+			Input::Clear();
 		}
 		
 		SDL_Quit();

@@ -13,17 +13,12 @@ public:
  	Texture(const Texture& texture);
 	~Texture();
 	
-	SDL_Texture* getTextureHandle() const;
+	SDL_Texture* getHandle() const;
 	
 	void LoadFromBMP(std::string path, SDL_Renderer* renderHandle);
 	void LoadFromPNG(std::string path, SDL_Renderer* renderHandle);
 	
 	Texture& operator=(const Texture& right);
-	
-	long int getCount() const
-	{
-		return _texture.use_count();
-	}
 	
 private:
 	using SharedTexture = std::shared_ptr<SDL_Texture>;

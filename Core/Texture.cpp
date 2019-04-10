@@ -1,4 +1,4 @@
-#include "SDLWrapper/Texture.hpp"
+#include "Core/Texture.hpp"
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
@@ -79,7 +79,7 @@ void Texture::LoadFromPNG(std::string path, SDL_Renderer* renderHandle)
 	IMG_Quit();
 }
 
-SDL_Texture* Texture::getTextureHandle() const
+SDL_Texture* Texture::getHandle() const
 {
 	return _texture.get();
 }

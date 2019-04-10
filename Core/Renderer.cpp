@@ -1,4 +1,4 @@
-#include "./SDLWrapper/Render/Renderer.hpp"
+#include "./Core/Render/Renderer.hpp"
 #include <iostream>
 #include <exception>
 
@@ -55,17 +55,17 @@ RenderRegion Renderer::getRenderRegion() const
 	return _renderRegion;
 }
 
-void Renderer::RenderTexture(SDL_Texture* texture)
+void Renderer::RenderTexture(Texture& texture)
 {
 	SDL_Rect *rect = new SDL_Rect;// = {0, 0, 300, 300};
     rect->x = 0; rect->y = 0; rect->w = 300; rect->h = 300;
-	SDL_RenderCopy(_renderer.get(), texture, nullptr, rect);
+	SDL_RenderCopy(_renderer.get(), texture.getHandle(), nullptr, rect);
 }
 
 void Renderer::RenderSprite(Sprite& sprite)
 {
 	SDL_Rect rect = sprite.getBound();
-	SDL_Texture *texture = sprite.getTexture().getTextureHandle();
+	SDL_Texture *texture = sprite.getTexture().getHandle();
 	SDL_RenderCopy(_renderer.get(), texture, nullptr, &rect);
 }
 

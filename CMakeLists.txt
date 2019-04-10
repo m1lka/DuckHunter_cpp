@@ -3,24 +3,28 @@ cmake_minimum_required(VERSION 2.6)
 project(DuckHunter)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb -g3 -std=c++0x")
 
-include_directories(./include)
+include_directories(./)
 
-set(SRC ./src/SDLWrapper/Window.cpp
-		./src/SDLWrapper/Renderer.cpp
-		./src/SDLWrapper/Texture.cpp
-		./src/SDLWrapper/Sprite.cpp
+set(SRC_CORE ./Core/Window.cpp
+			 ./Core/Renderer.cpp
+			 ./Core/Texture.cpp
+			 ./Core/Sprite.cpp
 )
 
-set(HDR ./include/SDLWrapper/Window.hpp
-		./include/SDLWrapper/Render/Renderer.hpp
-		./include/SDLWrapper/Render/RenderRegion.hpp
-		./include/SDLWrapper/Texture.hpp
-        ./include/SDLWrapper/MessageBox.hpp
-        ./include/SDLWrapper/Sprite.hpp
-        ./include/Game.hpp
+set(HDR_CORE ./Core/Window.hpp
+			 ./Core/Render/Renderer.hpp
+			 ./Core/Render/RenderRegion.hpp
+			 ./Core/Texture.hpp
+	         ./Core/MessageBox.hpp
+	         ./Core/Sprite.hpp
+	         ./Core/Input/KeyboardState.hpp
+		     ./Core/Input/MouseState.hpp
+		     ./Core/Input/Input.hpp
 )
 
-set(TARGET_SRC ./main.cpp)
+set(HDR_GAME ./Game.hpp)
+
+set(TARGET_SRC ${HDR_CORE} ${SRC_CORE} ${HDR_GAME} ./main.cpp)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL Linux)
 
@@ -28,7 +32,7 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL Linux)
 
   set(LIB SDL2 SDL2_image)
 
-  add_executable(${PROJECT_NAME} ${HDR} ${SRC} ${TARGET_SRC})
+  add_executable(${PROJECT_NAME} ${TARGET_SRC})
   target_link_libraries(${PROJECT_NAME} ${LIB})
 
 elseif(${CMAKE_SYSTEM_NAME} STREQUAL Windows)
@@ -37,7 +41,7 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL Windows)
 
   set(LIB m SDL2 SDL2main SDL2.dll mingw32 -mwindows)
 
-  add_executable(${PROJECT_NAME} ${HDR} ${SRC} ${TARGET_SRC})
+  add_executable(${PROJECT_NAME} ${TARGET_SRC})
   target_link_libraries(${PROJECT_NAME} ${LIB})
 
 else()

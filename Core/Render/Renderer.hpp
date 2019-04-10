@@ -1,10 +1,11 @@
 #ifndef _RENDERER_HPP
 #define _RENDERER_HPP
 
+#include "Core/Render/RenderRegion.hpp"
+#include "Core/Sprite.hpp"
+
 #include <SDL2/SDL.h>
 #include <memory>
-#include "SDLWrapper/Render/RenderRegion.hpp"
-#include "SDLWrapper/Sprite.hpp"
 
 class Renderer 
 {
@@ -19,7 +20,7 @@ public:
 	RenderRegion getRenderRegion() const;
 	SDL_Renderer *getRendererHandle() const;
 	
-	void RenderTexture(SDL_Texture* texture);
+	void RenderTexture(Texture& texture);
 	void RenderSprite(Sprite& sprite);
 	
 private:

@@ -1,7 +1,7 @@
 #ifndef _SPRITE_HPP_
 #define _SPRITE_HPP_
 
-#include "SDLWrapper/Texture.hpp"
+#include "Core/Texture.hpp"
 
 class Sprite
 {

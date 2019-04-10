@@ -1,9 +1,12 @@
-#include "SDLWrapper/Window.hpp"
+#include "Core/Window.hpp"
+#include "Core/MessageBox.hpp"
+
 #include <iostream>
 #include <exception>
 #include <functional>
 
-#include "SDLWrapper/MessageBox.hpp"
+#include "Core/Input/Input.hpp"
+
 
 using std::cerr;
 
