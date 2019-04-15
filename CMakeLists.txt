@@ -5,26 +5,26 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb -g3 -std=c++0x")
 
 include_directories(./)
 
-set(SRC_CORE ./Core/Window.cpp
-			 ./Core/Renderer.cpp
-			 ./Core/Texture.cpp
-			 ./Core/Sprite.cpp
+set(SRC_ENGINE ./mEngine/Core/Window.cpp
+			 ./mEngine/Core/Renderer.cpp
+			 ./mEngine/Core/Texture.cpp
+			 ./mEngine/Core/Sprite.cpp
 )
 
-set(HDR_CORE ./Core/Window.hpp
-			 ./Core/Render/Renderer.hpp
-			 ./Core/Render/RenderRegion.hpp
-			 ./Core/Texture.hpp
-	         ./Core/MessageBox.hpp
-	         ./Core/Sprite.hpp
-	         ./Core/Input/KeyboardState.hpp
-		     ./Core/Input/MouseState.hpp
-		     ./Core/Input/Input.hpp
+set(HDR_ENGINE ./mEngine/Core/Window.hpp
+			 ./mEngine/Core/Render/Renderer.hpp
+			 ./mEngine/Core/Render/RenderRegion.hpp
+			 ./mEngine/Core/Texture.hpp
+	         ./mEngine/Core/MessageBox.hpp
+	         ./mEngine/Core/Sprite.hpp
+	         ./mEngine/Core/Input/KeyboardState.hpp
+		     ./mEngine/Core/Input/MouseState.hpp
+		     ./mEngine/Core/Input/Input.hpp
 )
 
 set(HDR_GAME ./Game.hpp)
 
-set(TARGET_SRC ${HDR_CORE} ${SRC_CORE} ${HDR_GAME} ./main.cpp)
+set(TARGET_SRC ${HDR_ENGINE} ${SRC_ENGINE} ${HDR_GAME} ./main.cpp)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL Linux)
 

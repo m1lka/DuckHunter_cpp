@@ -1,8 +1,8 @@
 #ifndef _INPUT_HPP
 #define _INPUT_HPP
 
-#include "Core/Input/MouseState.hpp"
-#include "Core/Input/KeyboardState.hpp"
+#include "mEngine/Core/Input/MouseState.hpp"
+#include "mEngine/Core/Input/KeyboardState.hpp"
 
 #include <memory>
 #include <SDL2/SDL.h>
