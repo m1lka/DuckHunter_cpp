@@ -16,11 +16,11 @@ struct t_KeyboardState
 {
 public:
 	t_KeyboardState(
-		uint modifier,
+        unsigned short modifier,
 		SDL_Scancode key,
 		bool repeat,
 		Key::State state,
-		uint timeStamp,
+        unsigned short timeStamp,
 		Uint32 type
 	):
 		_modifier(modifier),
@@ -30,11 +30,11 @@ public:
 		_timeStamp(timeStamp),
 		_type(type) {}
 		
-	uint getModifier() const { return _modifier; }
+    unsigned short getModifier() const { return _modifier; }
 	SDL_Scancode getKey() const { return _key; }
 	bool getRepeat() const { return _repeat; }
 	Key::State getState() const { return _state; }
-	uint getTimestamp() const { return _timeStamp; }
+    Uint32 getTimestamp() const { return _timeStamp; }
 	Uint32 getEventType() const { return _type; }
 	
 	struct t_KeyboardState& operator=(const struct t_KeyboardState& right)
@@ -55,11 +55,11 @@ public:
 	}
 	
 private:
-	uint _modifier;
+    unsigned short _modifier;
 	SDL_Scancode _key;
 	bool _repeat;
 	Key::State _state;
-	uint _timeStamp;
+    Uint32 _timeStamp;
 	Uint32 _type;
 };
 

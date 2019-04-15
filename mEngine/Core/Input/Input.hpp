@@ -65,7 +65,7 @@ namespace Input
 		
 		Key::State state = (keyEvent.state == 0? Key::Released: Key::Pressed);
 		
-		uint timestamp = keyEvent.timestamp;
+        unsigned short timestamp = keyEvent.timestamp;
 		auto type = keyEvent.type;
 		
 		Keyboard.reset(new KeyboardState_t(
