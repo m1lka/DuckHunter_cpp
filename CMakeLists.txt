@@ -6,28 +6,30 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb -g3 -std=c++0x")
 include_directories(./)
 
 set(SRC_ENGINE ./mEngine/Core/Window.cpp
-               ./mEngine/Core/Renderer.cpp
-               ./mEngine/Core/Texture.cpp
-               ./mEngine/Core/Sprite.cpp
-               ./mEngine/Core/Object.cpp
+			 ./mEngine/Core/Renderer.cpp
+			 ./mEngine/Core/Texture.cpp
+			 ./mEngine/Core/Sprite.cpp
+			 ./mEngine/Core/Object.cpp
+			 ./mEngine/Core/Context.cpp
 )
 
 set(HDR_ENGINE ./mEngine/Core/Window.hpp
-               ./mEngine/Core/Render/Renderer.hpp
-               ./mEngine/Core/Render/RenderRegion.hpp
-               ./mEngine/Core/Texture.hpp
-               ./mEngine/Core/MessageBox.hpp
-               ./mEngine/Core/Sprite.hpp
-               ./mEngine/Core/Input/KeyboardState.hpp
-               ./mEngine/Core/Input/MouseState.hpp
-               ./mEngine/Core/Input/Input.hpp
-               ./mEngine/Core/Object.hpp
-)
-
+			 ./mEngine/Core/Render/Renderer.hpp
+			 ./mEngine/Core/Render/RenderRegion.hpp
+			 ./mEngine/Core/Texture.hpp
+	         ./mEngine/Core/MessageBox.hpp
+	         ./mEngine/Core/Sprite.hpp
+	         ./mEngine/Core/Input/KeyboardState.hpp
+		     ./mEngine/Core/Input/MouseState.hpp
+		     ./mEngine/Core/Input/Input.hpp
+		     ./mEngine/Core/Object.hpp
+		     ./mEngine/Core/Context.hpp)
 
 set(HDR_GAME ./Game.hpp)
-
 set(TARGET_SRC ${HDR_ENGINE} ${SRC_ENGINE} ${HDR_GAME} ./main.cpp)
+
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Textures/field.png ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Textures/X.bmp ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL Linux)
 
@@ -42,7 +44,8 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL Windows)
 
   add_definitions(-D_WIN32)
 
-  set(LIB m SDL2 SDL2main SDL2.dll SDL2_image.dll mingw32 -mwindows)
+  set(LIB m SDL2 SDL2main SDL2.dll mingw32 -mwindows)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/*.* ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
 
   add_executable(${PROJECT_NAME} ${TARGET_SRC})
   target_link_libraries(${PROJECT_NAME} ${LIB})
