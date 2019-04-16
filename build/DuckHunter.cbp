@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DuckHunter"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Content\;CMake Files\Content\Textures\;CMake Files\Content\Libraries\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="F:/Projects_cpp/git/DuckHunter_cpp/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DuckHunter">
+				<Option output="F:/Projects_cpp/git/DuckHunter_cpp/build/DuckHunter.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/Projects_cpp/git/DuckHunter_cpp/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_WIN32"/>
+					<Add directory="F:/Projects_cpp/git/DuckHunter_cpp/."/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 DuckHunter"/>
+					<CompileFile command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DuckHunter/fast">
+				<Option output="F:/Projects_cpp/git/DuckHunter_cpp/build/DuckHunter.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/Projects_cpp/git/DuckHunter_cpp/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_WIN32"/>
+					<Add directory="F:/Projects_cpp/git/DuckHunter_cpp/."/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 DuckHunter/fast"/>
+					<CompileFile command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="F:/Projects_cpp/git/DuckHunter_cpp/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="F:/Projects_cpp/git/DuckHunter_cpp/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Develop/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;F:/Projects_cpp/git/DuckHunter_cpp/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Game.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/Context.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/Context.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/Object.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/Object.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/Subsystem.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/Subsystem.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/Window.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/Window.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/mEngine.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Core/mEngine.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Render/RenderRegion.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Render/Renderer.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Renderer.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Sprite.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Sprite.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Texture.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Texture.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Input/Input.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Input/KeyboardState.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Input/MouseState.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/UI/MessageBox.hpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/main.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Textures/X.bmp">
+			<Option virtualFolder="CMake Files\Content\Textures\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Textures/field.png">
+			<Option virtualFolder="CMake Files\Content\Textures\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Libraries/SDL2.dll">
+			<Option virtualFolder="CMake Files\Content\Libraries\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Libraries/SDL2_image.dll">
+			<Option virtualFolder="CMake Files\Content\Libraries\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Libraries/SDL2_ttf.dll">
+			<Option virtualFolder="CMake Files\Content\Libraries\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Libraries/libfreetype-6.dll">
+			<Option virtualFolder="CMake Files\Content\Libraries\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Libraries/libjpeg-9.dll">
+			<Option virtualFolder="CMake Files\Content\Libraries\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Libraries/libpng16-16.dll">
+			<Option virtualFolder="CMake Files\Content\Libraries\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Libraries/libtiff-5.dll">
+			<Option virtualFolder="CMake Files\Content\Libraries\"/>
+		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/Content/Libraries/libwebp-7.dll">
+			<Option virtualFolder="CMake Files\Content\Libraries\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

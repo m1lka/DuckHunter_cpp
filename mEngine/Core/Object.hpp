@@ -2,6 +2,7 @@
 #define _OBJECT_HPP
 
 #include <string>
+#include "mEngine/Core/Context.hpp"
 
 #define TypeInfo(type) (#type)
 

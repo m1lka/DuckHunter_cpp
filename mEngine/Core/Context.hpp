@@ -1,5 +1,5 @@
-#ifndef _CONTEXT_HPP
-#define _CONTEXT_HPP
+#ifndef CONTEXT_HPP
+#define CONTEXT_HPP
 
 #include <string>
 #include <iostream>
@@ -8,6 +8,7 @@
 #include <memory>
 
 class Subsystem;
+
 using std::cerr;
 using std::string;
 using std::vector;
@@ -64,7 +65,7 @@ private:
 	vector<unique_ptr<Subsystem>> _cacheSystems;
 	unordered_map<string, Subsystem*> _systems;
 	
-	unsigned _sdlInits;
+    short _sdlInits;
 };
 
 #endif

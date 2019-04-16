@@ -6,24 +6,28 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb -g3 -std=c++0x")
 include_directories(./)
 
 set(SRC_ENGINE ./mEngine/Core/Window.cpp
-			 ./mEngine/Core/Renderer.cpp
-			 ./mEngine/Core/Texture.cpp
-			 ./mEngine/Core/Sprite.cpp
-			 ./mEngine/Core/Object.cpp
-			 ./mEngine/Core/Context.cpp
+               ./mEngine/Graphic/Renderer.cpp
+               ./mEngine/Graphic/Texture.cpp
+               ./mEngine/Graphic/Sprite.cpp
+               ./mEngine/Core/Object.cpp
+               ./mEngine/Core/Context.cpp
+               ./mEngine/Core/Subsystem.cpp
+               ./mEngine/Core/mEngine.cpp
 )
 
 set(HDR_ENGINE ./mEngine/Core/Window.hpp
-			 ./mEngine/Core/Render/Renderer.hpp
-			 ./mEngine/Core/Render/RenderRegion.hpp
-			 ./mEngine/Core/Texture.hpp
-	         ./mEngine/Core/MessageBox.hpp
-	         ./mEngine/Core/Sprite.hpp
-	         ./mEngine/Core/Input/KeyboardState.hpp
-		     ./mEngine/Core/Input/MouseState.hpp
-		     ./mEngine/Core/Input/Input.hpp
-		     ./mEngine/Core/Object.hpp
-		     ./mEngine/Core/Context.hpp)
+               ./mEngine/Graphic/Render/Renderer.hpp
+               ./mEngine/Graphic/Render/RenderRegion.hpp
+               ./mEngine/Graphic/Texture.hpp
+               ./mEngine/UI/MessageBox.hpp
+               ./mEngine/Graphic/Sprite.hpp
+               ./mEngine/Input/KeyboardState.hpp
+               ./mEngine/Input/MouseState.hpp
+               ./mEngine/Input/Input.hpp
+               ./mEngine/Core/Object.hpp
+               ./mEngine/Core/Context.hpp
+               ./mEngine/Core/Subsystem.hpp
+               ./mEngine/Core/mEngine.hpp)
 
 set(HDR_GAME ./Game.hpp)
 set(TARGET_SRC ${HDR_ENGINE} ${SRC_ENGINE} ${HDR_GAME} ./main.cpp)
@@ -45,7 +49,14 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL Windows)
   add_definitions(-D_WIN32)
 
   set(LIB m SDL2 SDL2main SDL2.dll mingw32 -mwindows)
-  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/*.* ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/libfreetype-6.dll ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/libjpeg-9.dll ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/libpng16-16.dll ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/libtiff-5.dll ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/libwebp-7.dll ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/SDL2.dll ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/SDL2_image.dll ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Content/Libraries/SDL2_ttf.dll ${CMAKE_CURRENT_BINARY_DIR}/ COPYONLY)
 
   add_executable(${PROJECT_NAME} ${TARGET_SRC})
   target_link_libraries(${PROJECT_NAME} ${LIB})
