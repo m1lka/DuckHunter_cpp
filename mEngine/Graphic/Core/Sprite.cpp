@@ -1,4 +1,4 @@
-#include "mEngine/Core/Sprite.hpp"
+#include "mEngine/Graphic/Core/Sprite.hpp"
 #include <iostream>
 
 Sprite::Sprite(Texture& texture, SDL_Rect bound):

@@ -1,4 +1,4 @@
-#include "mEngine/Core/Texture.hpp"
+#include "mEngine/Graphic/Core/Texture.hpp"
 #include <SDL2/SDL_image.h>
 #include <iostream>
 

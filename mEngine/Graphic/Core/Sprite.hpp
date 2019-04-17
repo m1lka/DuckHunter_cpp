@@ -1,7 +1,7 @@
 #ifndef _SPRITE_HPP_
 #define _SPRITE_HPP_
 
-#include "mEngine/Core/Texture.hpp"
+#include "mEngine/Graphic/Core/Texture.hpp"
 
 class Sprite
 {

@@ -1,8 +1,8 @@
 #ifndef _RENDERER_HPP
 #define _RENDERER_HPP
 
-#include "mEngine/Core/Render/RenderRegion.hpp"
-#include "mEngine/Core/Sprite.hpp"
+#include "mEngine/Graphic/Render/RenderRegion.hpp"
+#include "mEngine/Graphic/Core/Sprite.hpp"
 
 #include <SDL2/SDL.h>
 #include <memory>

@@ -1,7 +1,7 @@
-#include "mEngine/Core/Window.hpp"
-#include "mEngine/Core/Render/Renderer.hpp"
-#include "mEngine/Core/Texture.hpp"
-#include "mEngine/Core/Input/Input.hpp"
+#include "mEngine/Graphic/Core/Window.hpp"
+#include "mEngine/Graphic/Render/Renderer.hpp"
+#include "mEngine/Graphic/Core/Texture.hpp"
+#include "mEngine/Input/Input.hpp"
 
 #include <iostream>
 

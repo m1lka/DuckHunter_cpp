@@ -2,11 +2,11 @@
 #define _OBJECT_HPP
 
 #include <string>
-#include "mEngine/Core/Context.hpp"
-
-#define TypeInfo(type) (#type)
+using std::string;
 
 class Context;
+
+#define TypeInfo(type) (#type)
 
 class Object 
 {

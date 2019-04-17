@@ -1,13 +1,15 @@
 #ifndef CONTEXT_HPP
 #define CONTEXT_HPP
 
+#pragma once
+
 #include <string>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
 #include <memory>
 
-class Subsystem;
+#include "mEngine/Core/Subsystem.hpp"
 
 using std::cerr;
 using std::string;

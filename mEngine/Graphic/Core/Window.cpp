@@ -1,11 +1,11 @@
-#include "mEngine/Core/Window.hpp"
-#include "mEngine/Core/MessageBox.hpp"
+#include "mEngine/Graphic/Core/Window.hpp"
+#include "mEngine/UI/MessageBox.hpp"
 
 #include <iostream>
 #include <exception>
 #include <functional>
 
-#include "mEngine/Core/Input/Input.hpp"
+#include "mEngine/Input/Input.hpp"
 
 
 using std::cerr;
