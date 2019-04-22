@@ -4,7 +4,7 @@
 #include <string>
 using std::string;
 
-class Context;
+#include "mEngine/Core/Context.hpp"
 
 #define TypeInfo(type) (#type)
 
@@ -19,7 +19,18 @@ public:
 
     Context* GetContext() const { return _context; }
 
-private:
+    template<typename T>
+    T* GetSubsystem() const
+    {
+        return _context->GetSubsystem<T>();
+    }
+
+    Subsystem* GetSubsystem(string type) const
+    {
+        return _context->GetSubsystem(type);
+    }
+
+protected:
     Context* _context;
 };
 

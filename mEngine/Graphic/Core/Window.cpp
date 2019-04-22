@@ -10,13 +10,11 @@
 
 using std::cerr;
 
-Window::Window(std::string title, int width, int height, Uint32 windowFlag, Uint32 systemFlag):
-	Quit(nullptr),
-	_width(width),
-	_height(height),
-	_title(title),
-	_systemFlag(systemFlag),
-	_windowFlag(windowFlag),
+Window::Window():
+    _width(0),
+    _height(0),
+    _title("Window"),
+    _windowFlag(0),
 	_window(nullptr, SDL_DestroyWindow)
 {
 
@@ -27,14 +25,20 @@ Window::~Window()
 	Dispose();
 }
 
-void Window::Initialize()
+void Window::Initialize(std::string title, int width, int heght, Uint32 windowFlags)
 {
-	if(SDL_Init(_systemFlag) != 0)
-	{
-		std::string error = std::string("SDL_Init Error: ") + SDL_GetError();
-		cerr << error << "\n";
-		throw std::bad_function_call();
-	}
+    if (SDL_WasInit(SDL_INIT_VIDEO) != 0) {
+        cerr << "Window::Initialize ok\n";
+    } else {
+        std::string error = "ERROR::Video system is not initialized\n";
+        cerr << error << "\n";
+        throw std::bad_function_call();
+    }
+
+    _title = title;
+    _width = width;
+    _height = heght;
+    _windowFlag = windowFlags;
 	
 	CreateWindow();
 }
@@ -43,7 +47,8 @@ void Window::CreateWindow()
 {
 	_window.reset(SDL_CreateWindow(
 					_title.c_str(), 
-				    500, 500, 
+                    SDL_WINDOWPOS_CENTERED,
+                    SDL_WINDOWPOS_CENTERED,
 					_width, _height, 
 					_windowFlag));
 	
@@ -55,29 +60,9 @@ void Window::CreateWindow()
 	}
 }
 
-void Window::Update(SDL_Event& currentEvent)
-{
-	auto windowEvent = currentEvent.window;
-	_width = windowEvent.data1;
-	_height = windowEvent.data2;
-	
-	if(currentEvent.quit.type == SDL_QUIT ||
-		currentEvent.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
-	{
-		DialogResult res = MessageBox::ShowDialog("Info", "Do you pressed Exit?");
-		if(res == DialogResult::No)
-			cerr << "Pressed NO\n";
-		else if(res == DialogResult::Yes)
-			cerr << "Pressed YES\n";
-		if(Quit)
-			Quit();
-	}
-}
-
 void Window::Dispose()
 {
-	_window.release();
-	Quit = nullptr;
+    _window.get_deleter();
 }
 
 SDL_Window* Window::getHandle() const
@@ -95,9 +80,10 @@ int Window::getWidth() const
 	return _width;
 }
 
-void Window::setWidth(int width)
+Window& Window::setWidth(int width)
 {
 	_width = width;
+    return *this;
 }
 
 int Window::getHeight() const
@@ -105,8 +91,9 @@ int Window::getHeight() const
 	return _height;
 }
 
-void Window::setHeight(int height)
+Window& Window::setHeight(int height)
 {
 	_height = height;
+    return *this;
 }
 

@@ -13,6 +13,7 @@ set(SRC_ENGINE ./mEngine/Graphic/Core/Window.cpp
                ./mEngine/Core/Context.cpp
                ./mEngine/Core/Subsystem.cpp
                ./mEngine/Core/mCore.cpp
+               ./mEngine/Graphic/Core/Graphics.cpp
 )
 
 set(HDR_ENGINE ./mEngine/Graphic/Core/Window.hpp
@@ -27,7 +28,8 @@ set(HDR_ENGINE ./mEngine/Graphic/Core/Window.hpp
                ./mEngine/Core/Object.hpp
                ./mEngine/Core/Context.hpp
                ./mEngine/Core/Subsystem.hpp
-               ./mEngine/Core/mCore.hpp)
+               ./mEngine/Core/mCore.hpp
+               ./mEngine/Graphic/Core/Graphics.hpp)
 
 set(HDR_GAME ./Game.hpp)
 set(TARGET_SRC ${HDR_ENGINE} ${SRC_ENGINE} ${HDR_GAME} ./main.cpp)
