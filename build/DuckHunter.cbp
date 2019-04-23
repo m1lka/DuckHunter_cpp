@@ -129,12 +129,6 @@
 		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Core/Texture.hpp">
 			<Option target="DuckHunter"/>
 		</Unit>
-		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Core/Window.cpp">
-			<Option target="DuckHunter"/>
-		</Unit>
-		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Core/Window.hpp">
-			<Option target="DuckHunter"/>
-		</Unit>
 		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Render/RenderRegion.hpp">
 			<Option target="DuckHunter"/>
 		</Unit>

@@ -6,15 +6,13 @@ using std::string;
 
 #include "mEngine/Core/Context.hpp"
 
-#define TypeInfo(type) (#type)
-
 class Object 
 {
 public:
-    Object(Context* context): _context(context) {}
-    virtual ~Object() {}
+    Object(Context* context);
+    virtual ~Object();
 
-    static std::string GetTypeInfo() { return std::string(TypeInfo(Object)); }
+    static std::string GetTypeInfo() { return std::string("Object"); }
     static std::string GetBaseTypeInfo() { return std::string(""); }
 
     Context* GetContext() const { return _context; }

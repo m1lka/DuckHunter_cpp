@@ -11,8 +11,8 @@ public:
     Subsystem(Context* context);
     virtual ~Subsystem();
 
-    static string GetTypeInfo() { return string(TypeInfo(Subsystem)); }
-    static string GetBaseTypeInfo() { return string(TypeInfo(Obj)); }
+    static string GetTypeInfo() { return string("Subsystem"); }
+    static string GetBaseTypeInfo() { return string("Object"); }
 };
 
-#endif // SUBSYSTEM_H
+#endif // _SUBSYSTEM_H

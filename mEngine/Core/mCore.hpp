@@ -14,11 +14,16 @@ public:
 	void InitGame();
 	
 	void ProcessFrame();
+
+    bool IsRunning() const;
+    void DoExit();
 	
 private:
 	
 	// pointer for subsystems
     Graphics* _graphics;
+
+    bool run;
 };
 
 #endif // MENGINE_HPP

@@ -5,8 +5,7 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
 include_directories(./)
 
-set(SRC_ENGINE ./mEngine/Graphic/Core/Window.cpp
-               ./mEngine/Graphic/Render/Renderer.cpp
+set(SRC_ENGINE ./mEngine/Graphic/Render/Renderer.cpp
                ./mEngine/Graphic/Core/Texture.cpp
                ./mEngine/Graphic/Core/Sprite.cpp
                ./mEngine/Core/Object.cpp
@@ -16,8 +15,7 @@ set(SRC_ENGINE ./mEngine/Graphic/Core/Window.cpp
                ./mEngine/Graphic/Core/Graphics.cpp
 )
 
-set(HDR_ENGINE ./mEngine/Graphic/Core/Window.hpp
-               ./mEngine/Graphic/Render/Renderer.hpp
+set(HDR_ENGINE ./mEngine/Graphic/Render/Renderer.hpp
                ./mEngine/Graphic/Render/RenderRegion.hpp
                ./mEngine/Graphic/Core/Texture.hpp
                ./mEngine/UI/MessageBox.hpp
