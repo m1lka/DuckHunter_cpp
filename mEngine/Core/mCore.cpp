@@ -1,4 +1,5 @@
 #include "mEngine/Core/mCore.hpp"
+#include "mEngine/Core/Context.hpp"
 
 mCore::mCore(Context* context): 
     Object(context),
@@ -6,6 +7,7 @@ mCore::mCore(Context* context):
     run(true)
 {
     // = nullptr
+    cerr << "mCore::mCore()\n";
 }
 
 mCore::~mCore()
@@ -16,8 +18,7 @@ mCore::~mCore()
 void mCore::Run()
 {
     // инициализация компонентов
-
-    _context->InitSDLSystem(SDL_INIT_VIDEO);
+    cerr << "mCore::Run()\n";
 
     _graphics = _context->RegisterSubsystem<Graphics>();
 

@@ -4,7 +4,9 @@
 #include <string>
 using std::string;
 
-#include "mEngine/Core/Context.hpp"
+//#include "mEngine/Core/Context.hpp"
+
+class Context;
 
 class Object 
 {
@@ -17,16 +19,16 @@ public:
 
     Context* GetContext() const { return _context; }
 
-    template<typename T>
-    T* GetSubsystem() const
-    {
-        return _context->GetSubsystem<T>();
-    }
+//    template<typename T>
+//    T* GetSubsystem() const
+//    {
+//        return _context->GetSubsystem<T>();
+//    }
 
-    Subsystem* GetSubsystem(string type) const
-    {
-        return _context->GetSubsystem(type);
-    }
+//    Subsystem* GetSubsystem(string type) const
+//    {
+//        return _context->GetSubsystem(type);
+//    }
 
 protected:
     Context* _context;

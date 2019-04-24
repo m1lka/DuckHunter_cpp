@@ -12,8 +12,8 @@ public:
     Graphics(Context* context);
     virtual ~Graphics();
 
-    static string GetTypeInfo() { return string(TypeInfo(Graphic)); }
-    static string GetBaseTypeInfo() { return string(TypeInfo(Subsystem)); }
+    static string GetTypeInfo() { return string("Graphic"); }
+    static string GetBaseTypeInfo() { return string("Subsystem"); }
 
     SDL_Window* getWindowHandle() const;
     std::string getWindowTitle() const;

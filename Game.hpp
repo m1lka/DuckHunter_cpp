@@ -5,23 +5,11 @@
 class Game: public Object
 {
 public:
-    Game():
-        Object(new Context())
-	{
-        _core = new mCore(_context);
-	}
+    Game();
 
-    virtual ~Game()
-    {
-        delete _context;
-        delete _core;
-    }
+    virtual ~Game();
 	
-	void Run()
-	{
-        while(_core->IsRunning())
-            _core->ProcessFrame();
-	}	
+    void Run();
 
 private:
     mCore *_core;

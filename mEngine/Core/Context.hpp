@@ -9,7 +9,8 @@
 #include <vector>
 #include <memory>
 
-#include "mEngine/Core/Subsystem.hpp"
+//#include "mEngine/Core/Subsystem.hpp"
+class Subsystem;
 
 using std::cerr;
 using std::string;
@@ -45,6 +46,7 @@ public:
 	template<typename T, typename ...Args>
 	T* RegisterSubsystem(Args... args)
 	{
+        cerr << "Register: " << T::GetTypeInfo() << "\n";
 		string classType = T::GetTypeInfo();
 		
 		auto pSystem = _systems.find(classType);

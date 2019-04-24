@@ -1,4 +1,6 @@
 #include "mEngine/Graphic/Core/Graphics.hpp"
+#include "mEngine/Core/Context.hpp"
+
 #include <exception>
 #include <iostream>
 
@@ -18,6 +20,8 @@ Graphics::Graphics(Context* context):
 Graphics::~Graphics()
 {
     DisposeWindow();
+    _context->SDLQuit();
+    cerr << "Graphics::~Graphics()\n";
 }
 
 SDL_Window* Graphics::getWindowHandle() const

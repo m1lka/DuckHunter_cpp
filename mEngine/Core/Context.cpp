@@ -1,13 +1,15 @@
 #include "mEngine/Core/Context.hpp"
+#include "mEngine/Core/Subsystem.hpp"
 #include <SDL2/SDL.h>
 
 Context::Context()
 {
-
+    cerr << "Context::Context()\n";
 }
 
 Context::~Context()
 {
+    cerr << "_sdlInits: " << _sdlInits << "\n";
     _cacheSystems.clear();
     if(_sdlInits > 0)
         cerr << "Warning: SDL was not turned off\n";
@@ -15,6 +17,7 @@ Context::~Context()
 
 void Context::InitSDLSystem(unsigned int flags)
 {
+    cerr << "Init SDL_System\n";
     if(_sdlInits == 0)
     {
         SDL_Init(0);
