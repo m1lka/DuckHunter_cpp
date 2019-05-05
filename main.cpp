@@ -9,6 +9,7 @@ int main()
 #endif // #ifdef _LINUX
 #endif // else
 {
+    // TODO make input system..
     Game g;
 	g.Run();
     return 0;
