@@ -1,16 +1,15 @@
-#include "mEngine/Core/mCore.hpp"
-
 #include <iostream>
+#include "mEngine/Graphic/Core/Window.hpp"
 
-class Game: public Object
+class Game
 {
 public:
     Game();
 
-    virtual ~Game();
+    ~Game();
+	
+	Window _window;
+	bool run;
 	
     void Run();
-
-private:
-    mCore *_core;
 };

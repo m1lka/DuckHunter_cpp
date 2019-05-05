@@ -1,30 +1,27 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include "mEngine/Core/Subsystem.hpp"
 #include <memory>
 #include <string>
 #include <SDL2/SDL.h>
 
-class Graphics: public Subsystem
+class Window
 {
 public:
-    Graphics(Context* context);
-    virtual ~Graphics();
-
-    static string GetTypeInfo() { return string("Graphic"); }
-    static string GetBaseTypeInfo() { return string("Subsystem"); }
+    Window();
+    ~Window();
 
     SDL_Window* getWindowHandle() const;
     std::string getWindowTitle() const;
 
     int getWindowWidth() const;
-    Graphics& setWindowWidth(int width);
+    Window& setWindowWidth(int width);
 
     int getWindowHeight() const;
-    Graphics& setWindowHeight(int height);
+    Window& setWindowHeight(int height);
 
-    void SetVideoMode(string titleWindow, int width, int height, Uint32 windowFlag);
+    void SetVideoMode(std::string titleWindow, int width, int height, Uint32 windowFlag);
+	void DisposeWindow();
 
 private:
     int _windowWidth;
@@ -35,7 +32,7 @@ private:
     std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)> _window;
 
     void CreateWindow();
-    void DisposeWindow();
+	void InitVideoSystem();
 };
 
 #endif // GRAPHICS_H

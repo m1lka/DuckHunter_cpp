@@ -1,5 +1,4 @@
-#include "mEngine/Graphic/Core/Graphics.hpp"
-#include "mEngine/Core/Context.hpp"
+#include "mEngine/Graphic/Core/Window.hpp"
 
 #include <exception>
 #include <iostream>
@@ -7,24 +6,21 @@
 using std::cerr;
 using std::string;
 
-Graphics::Graphics(Context* context):
-    Subsystem (context),
+Window::Window():
     _windowWidth(0),
     _windowHeight(0),
     _windowTitle(""),
     _window(nullptr, SDL_DestroyWindow)
 {
-    _context->InitSDLSystem(SDL_INIT_VIDEO);
+	cerr << "Window()\n";
 }
 
-Graphics::~Graphics()
+Window::~Window()
 {
-    DisposeWindow();
-    _context->SDLQuit();
-    cerr << "Graphics::~Graphics()\n";
+	cerr << "~Window()\n";
 }
 
-SDL_Window* Graphics::getWindowHandle() const
+SDL_Window* Window::getWindowHandle() const
 {
     if(_window)
         return _window.get();
@@ -32,47 +28,50 @@ SDL_Window* Graphics::getWindowHandle() const
     return nullptr;
 }
 
-std::string Graphics::getWindowTitle() const
+std::string Window::getWindowTitle() const
 {
     return _windowTitle;
 }
 
-int Graphics::getWindowWidth() const
+int Window::getWindowWidth() const
 {
     return _windowWidth;
 }
 
-Graphics& Graphics::setWindowWidth(int width)
+Window& Window::setWindowWidth(int width)
 {
     _windowWidth = width;
 
     return *this;
 }
 
-int Graphics::getWindowHeight() const
+int Window::getWindowHeight() const
 {
     return _windowHeight;
 }
 
-Graphics& Graphics::setWindowHeight(int height)
+Window& Window::setWindowHeight(int height)
 {
     _windowHeight = height;
 
     return *this;
 }
 
-void Graphics::SetVideoMode(string titleWindow, int width, int height, Uint32 windowFlag)
+void Window::SetVideoMode(string titleWindow, int width, int height, Uint32 windowFlag)
 {
+	cerr << "SetVideoMode()\n";
     _windowTitle = titleWindow;
     _windowWidth = width;
     _windowHeight = height;
     _windowFlag = windowFlag;
 
+	InitVideoSystem();
     CreateWindow();
 }
 
-void Graphics::CreateWindow()
+void Window::CreateWindow()
 {
+	cerr << "CreateWindow()\n";
     _window.reset(SDL_CreateWindow(
                     _windowTitle.c_str(),
                     SDL_WINDOWPOS_CENTERED,
@@ -88,7 +87,18 @@ void Graphics::CreateWindow()
     }
 }
 
-void Graphics::DisposeWindow()
+void Window::InitVideoSystem()
 {
+	cerr << "InitVideoSystem()\n";
+	SDL_VideoInit(nullptr);
+	// SDL_InitSubsystem(SDL_INIT_VIDEO);
+}
+
+void Window::DisposeWindow()
+{
+	cerr << "DisposeWindow()\n";
     _window.get_deleter();
+	SDL_VideoQuit();
+	
+	//SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }

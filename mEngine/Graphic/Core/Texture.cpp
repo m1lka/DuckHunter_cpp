@@ -20,7 +20,6 @@ Texture::Texture(const Texture& texture):
 	}
 }
 
-
 Texture::~Texture()
 {
 	_texture.reset();

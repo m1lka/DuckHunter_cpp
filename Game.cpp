@@ -1,25 +1,35 @@
 #include "Game.hpp"
-#include "mEngine/Core/Context.hpp"
+#include <iostream>
+
+using std::cerr;
 
 Game::Game():
-    Object(new Context())
+	run(true),
+	_window()
 {
-    cerr << "Start Game::Game()\n";
-    _core = new mCore(_context);
-    cerr << "Stop Game::Game()\n";
+	SDL_Init(0);
+	cerr << "Game()\n";
 }
 
 Game::~Game()
 {
-    delete _context;
-    delete _core;
+	_window.DisposeWindow();
+	SDL_Quit();
+	cerr << "~Game()\n";
 }
 
 void Game::Run()
 {
-    _core->Run();
-    _core->InitGame();
-
-    while(_core->IsRunning())
-        _core->ProcessFrame();
+    std::cerr << "method Run()\n";
+	_window.SetVideoMode("Test", 500, 500, SDL_WINDOW_SHOWN);
+	
+	while(run)
+	{
+		SDL_Event event;
+		while(SDL_PollEvent(&event) != 0)
+		{
+			if(event.type == SDL_QUIT)
+				run = false;
+		}
+	}
 }

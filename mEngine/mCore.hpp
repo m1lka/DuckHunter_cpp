@@ -1,13 +1,10 @@
 #ifndef MENGINE_HPP
 #define MENGINE_HPP
 
-#include "mEngine/Core/Object.hpp"
-#include "mEngine/Graphic/Core/Graphics.hpp"
-
-class mCore: public Object
+class mCore
 {
 public:
-    mCore(Context* context);
+    mCore();
 	virtual ~mCore();
 	
 	void Run();
@@ -21,7 +18,6 @@ public:
 private:
 	
 	// pointer for subsystems
-    Graphics* _graphics;
 
     bool run;
 };
