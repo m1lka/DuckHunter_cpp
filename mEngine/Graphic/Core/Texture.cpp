@@ -1,5 +1,6 @@
 #include "mEngine/Graphic/Core/Texture.hpp"
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_log.h>
 #include <iostream>
 
 using std::cerr;
@@ -34,7 +35,7 @@ void Texture::LoadFromBMP(string path, SDL_Renderer* renderHandle)
 	if(surface == nullptr)
 	{
 		string error = string("SDL_LoadBMP error: ") + SDL_GetError();
-		cerr << error << "\n";
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
 	
@@ -43,7 +44,7 @@ void Texture::LoadFromBMP(string path, SDL_Renderer* renderHandle)
     if(_texture == nullptr)
 	{
 		string error = string("SDL_CreateTextureFromSurface error: ") + SDL_GetError();
-		cerr << error << "\n";
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
 }
@@ -54,7 +55,7 @@ void Texture::LoadFromPNG(std::string path, SDL_Renderer* renderHandle)
 	if((initSDLimage & IMG_INIT_PNG) != IMG_INIT_PNG)
 	{
 		string error = string("IMG_Init error: ") + SDL_GetError();
-		cerr << error << "\n";
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
 	
@@ -62,7 +63,7 @@ void Texture::LoadFromPNG(std::string path, SDL_Renderer* renderHandle)
 	if(surface == nullptr)
 	{
 		string error = string("IMG_Load PNG error: ") + SDL_GetError();
-		cerr << error << "\n";
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
 	
@@ -71,7 +72,7 @@ void Texture::LoadFromPNG(std::string path, SDL_Renderer* renderHandle)
 	if(_texture == nullptr)
 	{
 		string error = string("SDL_CreateTextureFromSurface PNG error: ") + SDL_GetError();
-		cerr << error << "\n";
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
 	

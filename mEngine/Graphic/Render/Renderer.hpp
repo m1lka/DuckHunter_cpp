@@ -14,14 +14,16 @@ public:
 	~Renderer();
 	
 	void Initialize(SDL_Window* windowHandle);
-	void Update();
-	void Clear();
 	
-	RenderRegion getRenderRegion() const;
-	SDL_Renderer *getRendererHandle() const;
+	void Clear();
 	
 	void RenderTexture(Texture& texture);
 	void RenderSprite(Sprite& sprite);
+	
+	void Update();
+	
+	RenderRegion getRenderRegion() const;
+	SDL_Renderer *getRendererHandle() const;
 	
 private:
 	RenderRegion _renderRegion;

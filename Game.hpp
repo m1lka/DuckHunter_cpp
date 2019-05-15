@@ -1,15 +1,31 @@
 #include <iostream>
-#include "mEngine/Graphic/Core/Window.hpp"
+#include "mEngine/mCore.hpp"
+#include "mEngine/Input/Input.hpp"
 
-class Game
+class Game: public mCore
 {
 public:
-    Game();
+    Game(): 
+	    mCore("Test", 500, 500, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE){}
+	    
+    virtual ~Game() 
+	{
+	}
+    	
+    void Initialize() override
+    {
 
-    ~Game();
-	
-	Window _window;
-	bool run;
-	
-    void Run();
+	}
+    
+    void Update() override
+    {
+		
+    }
+    
+    void Render(Renderer& renderer) override
+    {
+		renderer.Clear();
+		
+		renderer.Update();
+    }
 };

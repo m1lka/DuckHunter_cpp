@@ -8,20 +8,22 @@ include_directories(./)
 set(SRC_ENGINE ./mEngine/Graphic/Render/Renderer.cpp
                ./mEngine/Graphic/Core/Texture.cpp
                ./mEngine/Graphic/Core/Sprite.cpp
-               ./mEngine/mCore.cpp
                ./mEngine/Graphic/Core/Window.cpp
+               ./mEngine/Input/Input.cpp
+               ./mEngine/mCore.cpp
 )
 
-set(HDR_ENGINE ./mEngine/Graphic/Render/Renderer.hpp
-               ./mEngine/Graphic/Render/RenderRegion.hpp
+set(HDR_ENGINE ./mEngine/Graphic/Render/RenderRegion.hpp
+               ./mEngine/Graphic/Render/Renderer.hpp
                ./mEngine/Graphic/Core/Texture.hpp
-               ./mEngine/UI/MessageBox.hpp
                ./mEngine/Graphic/Core/Sprite.hpp
-               ./mEngine/Input/KeyboardState.hpp
-               ./mEngine/Input/MouseState.hpp
+               ./mEngine/Graphic/Core/Window.hpp
+               ./mEngine/UI/MessageBox.hpp
+               ./mEngine/Input/InputMapping.hpp
                ./mEngine/Input/Input.hpp
+               ./mEngine/Math/Vector2.hpp
                ./mEngine/mCore.hpp
-               ./mEngine/Graphic/Core/Window.hpp)
+)
 
 set(HDR_GAME ./Game.hpp)
 set(SRC_GAME ./Game.cpp)

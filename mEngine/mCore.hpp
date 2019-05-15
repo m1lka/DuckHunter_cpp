@@ -1,24 +1,37 @@
 #ifndef MENGINE_HPP
 #define MENGINE_HPP
 
+#include "mEngine/Graphic/Core/Window.hpp"
+#include "mEngine/Graphic/Render/Renderer.hpp"
+#include "mEngine/Input/Input.hpp"
+
+#include <string>
+using std::string;
+
 class mCore
 {
 public:
-    mCore();
+    mCore(string titleWindow, int widthWindow, int heightWindow, Uint32 windowFlag);
 	virtual ~mCore();
 	
-	void Run();
-	void InitGame();
+	void OnQuit();
+	void OnWindowResized(int newWidth, int newHeight);
 	
-	void ProcessFrame();
-
-    bool IsRunning() const;
-    void DoExit();
+	virtual void Initialize() = 0;
+	virtual void Update() = 0;
+	virtual void Render(Renderer& renderer) = 0;
+	
+	void Run();
 	
 private:
 	
-	// pointer for subsystems
-
+	InputEngine *Input;
+	
+	void EventLoop();
+	
+	Window _window;
+	Renderer _renderer;
+	
     bool run;
 };
 

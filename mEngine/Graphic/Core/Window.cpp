@@ -1,4 +1,5 @@
 #include "mEngine/Graphic/Core/Window.hpp"
+#include "mEngine/UI/MessageBox.hpp"
 
 #include <exception>
 #include <iostream>
@@ -13,11 +14,12 @@ Window::Window():
     _window(nullptr, SDL_DestroyWindow)
 {
 	cerr << "Window()\n";
+	SDL_Log("Window::Window()");
 }
 
 Window::~Window()
 {
-	cerr << "~Window()\n";
+	SDL_Log("Window::~Window()");
 }
 
 SDL_Window* Window::getWindowHandle() const
@@ -59,7 +61,7 @@ Window& Window::setWindowHeight(int height)
 
 void Window::SetVideoMode(string titleWindow, int width, int height, Uint32 windowFlag)
 {
-	cerr << "SetVideoMode()\n";
+	SDL_Log("Window::SetVideoMode");
     _windowTitle = titleWindow;
     _windowWidth = width;
     _windowHeight = height;
@@ -71,7 +73,7 @@ void Window::SetVideoMode(string titleWindow, int width, int height, Uint32 wind
 
 void Window::CreateWindow()
 {
-	cerr << "CreateWindow()\n";
+	SDL_Log("Window::CreateWindow");
     _window.reset(SDL_CreateWindow(
                     _windowTitle.c_str(),
                     SDL_WINDOWPOS_CENTERED,
@@ -82,23 +84,46 @@ void Window::CreateWindow()
     if(_window == nullptr)
     {
         string error = string("SDL_CreateWindow Error: ") + SDL_GetError();
-        cerr << error << "\n";
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::runtime_error(error.c_str());
     }
 }
 
 void Window::InitVideoSystem()
 {
-	cerr << "InitVideoSystem()\n";
+	SDL_Log("Window::InitVideoSystem");
 	SDL_VideoInit(nullptr);
 	// SDL_InitSubsystem(SDL_INIT_VIDEO);
 }
 
 void Window::DisposeWindow()
 {
-	cerr << "DisposeWindow()\n";
-    _window.get_deleter();
+	SDL_Log("Window::DisposeWindow");
+
+	_window.get_deleter();
 	SDL_VideoQuit();
 	
 	//SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }
+
+void Window::Update(SDL_Event& currentEvent)
+{
+// 	auto windowEvent = currentEvent.window;
+// 	_windowWidth = windowEvent.data1;
+// 	_windowHeight = windowEvent.data2;
+// 	
+// 	if(currentEvent.quit.type == SDL_QUIT ||
+// 		currentEvent.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
+// 	{
+// 		DialogResult res = MessageBox::ShowDialog("Info", "Exit?");
+// 		if(res == DialogResult::No)
+// 			cerr << "Pressed No\n";
+// 		else if(res == DialogResult::Yes)
+// 		{
+// 			cerr << "Pressed Yes\n";
+// 			if(Quit)
+// 				Quit();
+// 		}
+// 	}
+}
+

@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <SDL2/SDL.h>
+#include <functional>
 
 class Window
 {
@@ -22,6 +23,8 @@ public:
 
     void SetVideoMode(std::string titleWindow, int width, int height, Uint32 windowFlag);
 	void DisposeWindow();
+		
+	void Update(SDL_Event& currentEvent);
 
 private:
     int _windowWidth;

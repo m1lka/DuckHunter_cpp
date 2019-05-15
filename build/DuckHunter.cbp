@@ -117,13 +117,16 @@
 		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Graphic/Render/Renderer.hpp">
 			<Option target="DuckHunter"/>
 		</Unit>
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Input/Input.cpp">
+			<Option target="DuckHunter"/>
+		</Unit>
 		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Input/Input.hpp">
 			<Option target="DuckHunter"/>
 		</Unit>
-		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Input/KeyboardState.hpp">
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Input/InputMapping.hpp">
 			<Option target="DuckHunter"/>
 		</Unit>
-		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Input/MouseState.hpp">
+		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/Math/Vector2.hpp">
 			<Option target="DuckHunter"/>
 		</Unit>
 		<Unit filename="F:/Projects_cpp/git/DuckHunter_cpp/mEngine/UI/MessageBox.hpp">

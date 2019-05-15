@@ -9,28 +9,30 @@ Renderer::Renderer():
     _renderRegion({300, 300}),
 	_renderer(nullptr, SDL_DestroyRenderer)
 {
-	
+	SDL_Log("Renderer::Renderer()");
 }
 
 Renderer::~Renderer()
 {
 	_renderer.release();
+	SDL_Log("Renderer::~Renderer()");
 }
 
 void Renderer::Initialize(SDL_Window* windowHandle)
 {
+	SDL_Log("Renderer::Initialize()");
 	_renderer.reset(SDL_CreateRenderer(windowHandle, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC));
 	if(_renderer == nullptr)
 	{
 		string error = string("SDL_CreateRenderer Error: ") + SDL_GetError();
-		cerr << error << "\n";
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
 
 	if(SDL_RenderSetLogicalSize(_renderer.get(), _renderRegion.Width, _renderRegion.Height) < 0)
 	{
 		string error = string("SDL_RenderSetLogicalSize Error: ") + SDL_GetError();
-		cerr << error << "\n";
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
 }
