@@ -7,6 +7,6 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
-./build/*.exe
+./build/
 CMakeLists.txt.user
 ./build/*.cbp

@@ -68,10 +68,10 @@ void Window::SetVideoMode(string titleWindow, int width, int height, Uint32 wind
     _windowFlag = windowFlag;
 
 	InitVideoSystem();
-    CreateWindow();
+    InitWindow();
 }
 
-void Window::CreateWindow()
+void Window::InitWindow()
 {
 	SDL_Log("Window::CreateWindow");
     _window.reset(SDL_CreateWindow(

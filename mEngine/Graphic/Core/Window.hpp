@@ -34,8 +34,8 @@ private:
 
     std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)> _window;
 
-    void CreateWindow();
-	void InitVideoSystem();
+    void InitVideoSystem();
+    void InitWindow();
 };
 
 #endif // GRAPHICS_H
