@@ -96,7 +96,7 @@ void Window::InitVideoSystem()
 	// SDL_InitSubsystem(SDL_INIT_VIDEO);
 }
 
-void Window::DisposeWindow()
+void Window::Dispose()
 {
 	SDL_Log("Window::DisposeWindow");
 

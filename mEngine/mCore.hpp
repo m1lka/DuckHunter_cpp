@@ -25,7 +25,7 @@ public:
 	
 private:
 	
-	InputEngine *Input;
+    InputEngine* Input;
 	
 	void EventLoop();
 	

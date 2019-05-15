@@ -17,7 +17,7 @@ mCore::mCore(string titleWindow, int widthWindow, int heightWindow, Uint32 windo
 	SDL_Log("mCore::mCore() begin");
 	SDL_Init(0);
 	
-	Input = &InputEngine::instance();
+    Input = &InputEngine::instance();
 	
 	_window.SetVideoMode(titleWindow, widthWindow, heightWindow, windowFlag);
 	
@@ -34,7 +34,7 @@ mCore::~mCore()
 {
 	SDL_Log("mCore::~mCore() begin");
 	
-	_window.DisposeWindow();
+	_window.Dispose();
 	
 	Input->Dispose();
 	Input = nullptr;

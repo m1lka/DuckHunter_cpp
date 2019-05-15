@@ -9,23 +9,10 @@
 #include <array>
 #include <functional>
 
+#include <memory>
+
 using std::array;
 using std::function;
-
-class InputEngine;
-
-namespace Private
-{
-	class InputEngineDestroyer
-	{
-	private:
-		InputEngine* _instance;
-		
-	public:
-		~InputEngineDestroyer();
-		void Initialize(InputEngine* instance);
-	};
-}
 
 class InputEngine
 {
@@ -49,15 +36,11 @@ public:
 	function<void()> Quit;
 	function<void(int, int)> WindowResized;
 	
-	static InputEngine &instance();
-	
-protected:
-	friend class Private::InputEngineDestroyer;
+    static InputEngine& instance();
 	
 private:
 	InputEngine();
-	static InputEngine *_instance;
-	static Private::InputEngineDestroyer destroyer;
+    static std::unique_ptr<InputEngine> _instance;
 	
 	void SetKey(int keycode, bool down);
 	void SetMouseButton(int mousebutton, bool down);

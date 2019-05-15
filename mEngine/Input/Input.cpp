@@ -3,19 +3,7 @@
 #include <exception>
 #include <iostream>
 
-InputEngine* InputEngine::_instance = nullptr;
-Private::InputEngineDestroyer InputEngine::destroyer;
-
-Private::InputEngineDestroyer::~InputEngineDestroyer()
-{
-	if(_instance)
-		delete _instance;
-}
-
-void Private::InputEngineDestroyer::Initialize(InputEngine* instance)
-{
-	_instance = instance;
-}
+std::unique_ptr<InputEngine> InputEngine::_instance = nullptr;
 
 InputEngine::InputEngine():
 	Quit(nullptr),
@@ -35,11 +23,11 @@ InputEngine& InputEngine::instance()
 {
 	if(_instance == nullptr)
 	{
-		_instance = new InputEngine();
-		destroyer.Initialize(_instance);
+        _instance.reset(new InputEngine());
+        //destroyer.Initialize(_instance);
 	}
 	
-	return *_instance;
+    return *_instance;
 }
 
 InputEngine::~InputEngine()

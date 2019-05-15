@@ -22,7 +22,7 @@ public:
     Window& setWindowHeight(int height);
 
     void SetVideoMode(std::string titleWindow, int width, int height, Uint32 windowFlag);
-	void DisposeWindow();
+    void Dispose();
 		
 	void Update(SDL_Event& currentEvent);
 
