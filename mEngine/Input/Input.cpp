@@ -19,7 +19,7 @@ InputEngine::InputEngine():
 	SDL_Log("InputEngine::InputEngine()");
 }
 
-InputEngine& InputEngine::instance()
+InputEngine* InputEngine::instance()
 {
 	if(_instance == nullptr)
 	{
@@ -27,7 +27,7 @@ InputEngine& InputEngine::instance()
         //destroyer.Initialize(_instance);
 	}
 	
-    return *_instance;
+    return _instance.get();
 }
 
 InputEngine::~InputEngine()
@@ -95,8 +95,8 @@ void InputEngine::Update()
 	int newX, newY;
 	SDL_GetMouseState(&newX, &newY);
 	
-	_currentMousePosition.x = (float)newX;
-	_currentMousePosition.y = (float)newY;
+    _currentMousePosition.x = static_cast<float>(newX);
+    _currentMousePosition.y = static_cast<float>(newY);
 	
 	_mouseMovement.x = _currentMousePosition.x - _oldMousePosition.x;
 	_mouseMovement.y = _currentMousePosition.y - _oldMousePosition.y;
@@ -133,35 +133,38 @@ Vector2& InputEngine::GetMouseMovement()
 
 bool InputEngine::IsKeyDown(KeyboardKey key) const
 {
-	return _keyDown[(int)key];
+    return _keyDown[static_cast<unsigned long long>(key)];
 }
 
 bool InputEngine::IsKeyPressed(KeyboardKey key) const
 {
-	return _keyPressed[(int)key];
+    return _keyPressed[static_cast<unsigned long long>(key)];
 }
 
 bool InputEngine::IsMouseButtonDown(MouseKey key) const
 {
-	return ((_mouseButtonDown >> ((int)key - 1)) & 1) == 1;
+    auto mKey = static_cast<unsigned>(key);
+    return ((_mouseButtonDown >> (mKey - 1)) & 1) == 1;
 }
 
 bool InputEngine::IsMouseButtonPressed(MouseKey key) const
 {
-	return ((_mouseButtonPressed >> ((int)key - 1)) & 1) == 1;
+    auto mKey = static_cast<unsigned>(key);
+    return ((_mouseButtonPressed >> (mKey - 1)) & 1) == 1;
 }
 
 void InputEngine::SetKey(int keycode, bool down)
 {
+    auto keyCode = static_cast<unsigned long long>(keycode);
 	if(down)
 	{
-		if(_keyDown[keycode] == false)
-			_keyPressed[keycode] = true;
-		_keyDown[keycode] = true;
+        if(_keyDown[keyCode] == false)
+            _keyPressed[keyCode] = true;
+        _keyDown[keyCode] = true;
 	}
 	else
 	{
-		_keyDown[keycode] = false;
+        _keyDown[keyCode] = false;
 	}
 }
 

@@ -3,7 +3,7 @@
 
 #include <SDL2/SDL.h>
 
-enum class KeyboardKey
+enum class KeyboardKey: unsigned long long
 {
 	KEY_UNKNOWN = SDL_SCANCODE_UNKNOWN,
 	KEY_A = SDL_SCANCODE_A,
@@ -248,15 +248,15 @@ enum class KeyboardKey
 	KEY_APP2 = SDL_SCANCODE_APP2,
 
 	MAX = SDL_NUM_SCANCODES,
-	NONE = -1
+    NONE = SDL_NUM_SCANCODES+1
 };
 
-enum class MouseKey
+enum class MouseKey: unsigned
 {
 	LEFT_BUTTON = SDL_BUTTON_LEFT,
 	MIDDLE_BUTTON = SDL_BUTTON_MIDDLE,
 	RIGHT_BUTTON = SDL_BUTTON_RIGHT,
-	NONE = -1
+    NONE = 4
 };
 
 #endif

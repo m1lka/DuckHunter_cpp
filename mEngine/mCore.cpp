@@ -17,7 +17,7 @@ mCore::mCore(string titleWindow, int widthWindow, int heightWindow, Uint32 windo
 	SDL_Log("mCore::mCore() begin");
 	SDL_Init(0);
 	
-    Input = &InputEngine::instance();
+    Input = InputEngine::instance();
 	
 	_window.SetVideoMode(titleWindow, widthWindow, heightWindow, windowFlag);
 	
@@ -78,5 +78,10 @@ void mCore::Run()
 		Update();
 		Render(_renderer);
 	}
+}
+
+SDL_Renderer *mCore::getRendererHandle() const
+{
+    return _renderer.getRendererHandle();
 }
 

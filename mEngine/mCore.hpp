@@ -22,6 +22,8 @@ public:
 	virtual void Render(Renderer& renderer) = 0;
 	
 	void Run();
+
+    SDL_Renderer *getRendererHandle() const;
 	
 private:
 	
@@ -30,9 +32,10 @@ private:
 	void EventLoop();
 	
 	Window _window;
-	Renderer _renderer;
+    Renderer _renderer;
 	
     bool run;
+
 };
 
 #endif // MENGINE_HPP

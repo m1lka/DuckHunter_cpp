@@ -1,5 +1,4 @@
-#ifndef _INPUT_HPP
-#define _INPUT_HPP
+#pragma once
 
 #pragma once
 
@@ -36,7 +35,7 @@ public:
 	function<void()> Quit;
 	function<void(int, int)> WindowResized;
 	
-    static InputEngine& instance();
+    static InputEngine* instance();
 	
 private:
 	InputEngine();
@@ -52,8 +51,6 @@ private:
 	Vector2 _currentMousePosition;
 	Vector2 _mouseMovement;
 	
-	array<bool, (size_t)KeyboardKey::MAX> _keyDown;
-	array<bool, (size_t)KeyboardKey::MAX> _keyPressed;
+    array<bool, static_cast<size_t>(KeyboardKey::MAX)> _keyDown;
+    array<bool, static_cast<size_t>(KeyboardKey::MAX)> _keyPressed;
 };
-
-#endif // _INPUT_HPP
