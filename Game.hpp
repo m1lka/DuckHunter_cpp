@@ -16,10 +16,14 @@ public:
     	
     void Initialize() override
     {
+        Texture t;
         t.LoadFromPNG("./field.png", getRendererHandle());
+        SDL_Rect r;
+        r.x = 0; r.y = 0; r.w = 300; r.h = 300;
+        sprite.reset(t, r);
 	}
     
-    void Update() override
+    void Update(Renderer& renderer) override
     {
 		
     }
@@ -27,10 +31,10 @@ public:
     void Render(Renderer& renderer) override
     {
 		renderer.Clear();
-        renderer.RenderTexture(t);
+        renderer.RenderSprite(sprite);
 		renderer.Update();
     }
 
 private:
-    Texture t;
+    Sprite sprite;
 };

@@ -7,7 +7,7 @@ using std::cerr;
 using std::string;
 
 Texture::Texture():
-	_texture(nullptr, SDL_DestroyTexture)
+    _texture(nullptr, SDL_DestroyTexture)
 {
 	
 }
@@ -15,21 +15,18 @@ Texture::Texture():
 Texture::Texture(const Texture& texture):
 	_texture(nullptr, SDL_DestroyTexture)
 {
-	if(texture._texture != nullptr)
-	{
-		_texture = texture._texture;
-	}
+    if(texture._texture != nullptr)
+        _texture = texture._texture;
 }
 
 Texture::~Texture()
 {
-	_texture.reset();
+    Clear();
 }
 
 void Texture::LoadFromBMP(string path, SDL_Renderer* renderHandle)
 {
-	if(_texture != nullptr)
-		_texture.reset();
+    Clear();
 	
 	SDL_Surface *surface = SDL_LoadBMP(path.c_str());
 	if(surface == nullptr)
@@ -58,6 +55,8 @@ void Texture::LoadFromPNG(std::string path, SDL_Renderer* renderHandle)
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
+
+    Clear();
 	
 	auto surface = IMG_Load(path.c_str());
 	if(surface == nullptr)
@@ -75,13 +74,13 @@ void Texture::LoadFromPNG(std::string path, SDL_Renderer* renderHandle)
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, error.c_str());
         throw std::exception();
 	}
-	
-	IMG_Quit();
+
+    IMG_Quit();
 }
 
 SDL_Texture* Texture::getHandle() const
 {
-	return _texture.get();
+    return (isInitted()? _texture.get(): nullptr);
 }
 
 Texture& Texture::operator=(const Texture& right)
@@ -91,7 +90,7 @@ Texture& Texture::operator=(const Texture& right)
 		return *this;
 	}
 	
-	_texture = nullptr;
+    _texture.reset();
 	_texture = right._texture;
 
 	return *this;
@@ -102,4 +101,16 @@ Texture::SharedTexture Texture::MakeSharedTexture(SDL_Texture* texture)
 	return SharedTexture(texture, SDL_DestroyTexture);
 }
 
+void Texture::Clear()
+{
+    if(_texture != nullptr)
+    {
+        _texture.reset();
+        _texture = nullptr;
+    }
+}
 
+bool Texture::isInitted() const
+{
+    return (_texture != nullptr? true: false);
+}

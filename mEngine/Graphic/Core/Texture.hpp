@@ -5,10 +5,11 @@
 #include <string>
 #include <SDL2/SDL.h>
 
+class Sprite;
+
 class Texture
 {
 public:
-
 	Texture();
  	Texture(const Texture& texture);
 	~Texture();
@@ -21,11 +22,16 @@ public:
 	Texture& operator=(const Texture& right);
 	
 private:
-	using SharedTexture = std::shared_ptr<SDL_Texture>;
+    using SharedTexture = std::shared_ptr<SDL_Texture>;
 	
-	SharedTexture MakeSharedTexture(SDL_Texture* texture);
+    static SharedTexture MakeSharedTexture(SDL_Texture* texture);
+    void Clear();
 	
-	SharedTexture _texture;
+    std::shared_ptr<SDL_Texture> _texture;
+
+    bool isInitted() const;
+
+    friend class Sprite;
 };
 
 #endif // _TEXTURE_HPP_

@@ -45,7 +45,7 @@ mCore::~mCore()
 
 void mCore::EventLoop()
 {
-	
+    Input->Update();
 }
 
 void mCore::OnQuit()
@@ -73,9 +73,9 @@ void mCore::Run()
 	{
 		// calc time
 		
-		Input->Update();
+        EventLoop();
 						
-		Update();
+        Update(_renderer);
 		Render(_renderer);
 	}
 }

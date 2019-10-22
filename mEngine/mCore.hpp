@@ -18,7 +18,7 @@ public:
 	void OnWindowResized(int newWidth, int newHeight);
 	
 	virtual void Initialize() = 0;
-	virtual void Update() = 0;
+    virtual void Update(Renderer& renderer) = 0;
 	virtual void Render(Renderer& renderer) = 0;
 	
 	void Run();
@@ -35,7 +35,6 @@ private:
     Renderer _renderer;
 	
     bool run;
-
 };
 
 #endif // MENGINE_HPP

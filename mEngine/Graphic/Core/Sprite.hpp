@@ -6,8 +6,11 @@
 class Sprite
 {
 public:
+    Sprite();
 	Sprite(Texture &texture, SDL_Rect bound);
 	~Sprite();
+
+    void reset(Texture &texture, SDL_Rect bound);
 	
 	Texture& getTexture();
 	SDL_Rect getBound() const;
